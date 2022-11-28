@@ -20,6 +20,6 @@ export default async (event) => {
     ]
     event.reply(reply)
   } catch (error) {
-    console.log('error')
+    console.log(error)
   }
 }

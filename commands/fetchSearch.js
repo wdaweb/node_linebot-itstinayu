@@ -22,6 +22,6 @@ export default async (event) => {
     console.log(reply)
     event.reply(reply)
   } catch (error) {
-    console.log('error')
+    console.log(error)
   }
 }

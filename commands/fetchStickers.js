@@ -35,6 +35,6 @@ export default async (event) => {
     event.reply(reply)
     console.log(stickers)
   } catch (error) {
-    console.log('error')
+    console.log(error)
   }
 }
