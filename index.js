@@ -4,7 +4,7 @@ import fetchSearch from './commands/fetchSearch.js'
 import fetchTranslate from './commands/fetchTranslate.js'
 import fetchTrending from './commands/fetchTrending.js'
 import fetchStickers from './commands/fetchStickers.js'
-import express from 'express'
+// import express from 'express'
 import axios from 'axios'
 import giphyApi from 'giphy-api'
 
@@ -16,11 +16,10 @@ const bot = linebot({
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 })
 
-const app = express()
+// const app = express()
 
-app.on('message', event => {
+bot.on('message', event => {
   if (event.message.type !== 'text') return
-
   if (event.message.text === '找貼紙') {
     fetchStickers(event)
   } else if (event.message.text === '熱門') {
@@ -34,12 +33,16 @@ app.on('message', event => {
   }
 })
 
-const linebotParser = bot.parser()
-app.post('/', linebotParser)
-app.get('/', (req, res) => {
-  res.status(200).send('ok')
-})
+// const linebotParser = bot.parser()
+// app.post('/', linebotParser)
+// app.get('/', (req, res) => {
+//   res.status(200).send('ok')
+// })
 
-app.listen(process.env.PORT || 3000, () => {
+// app.listen(process.env.PORT || 3000, () => {
+//   console.log('機器人啟動')
+// })
+
+bot.listen('/', process.env.PORT || 3000, () => {
   console.log('機器人啟動')
 })
